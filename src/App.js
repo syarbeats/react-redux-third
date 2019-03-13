@@ -9,10 +9,15 @@ class App extends Component {
   constructor(props){
     super(props);
     this.onUpdateUser = this.onUpdateUser.bind(this);
+    this.onUpdateUserOnChange = this.onUpdateUserOnChange.bind(this);
   }
 
   onUpdateUser(){
     this.props.onUpdateUser('Goerge Harisson');
+  }
+
+  onUpdateUserOnChange(event){
+    this.props.onUpdateUserOnChange(event.target.value);
   }
 
   render() {
@@ -27,6 +32,9 @@ class App extends Component {
           <div onClick={this.onUpdateUser}>
             <p>Or Clik Me to Update User !!!</p>
           </div>
+          <div>
+            <input onChange={this.onUpdateUserOnChange}/>
+          </div>
           { this.props.user }
         </main>
       </div>
@@ -40,7 +48,8 @@ const mapStateToProps = state => ({
 });
 
 const mapActionsToProps = {
-  onUpdateUser: updateUser
+  onUpdateUser: updateUser,
+  onUpdateUserOnChange: updateUser
 };
 
 export default connect(mapStateToProps,mapActionsToProps)(App);
