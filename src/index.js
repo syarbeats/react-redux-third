@@ -19,7 +19,7 @@ const store = createStore(allReducers, {
     },
     window.devToolsExtension && window.devToolsExtension());
 
-ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
+ReactDOM.render(<Provider store={store}><App aRandomProps="This is send from index.js" /></Provider>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
